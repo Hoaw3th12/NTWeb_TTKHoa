@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bai Thuc Hanh Chuong 2</title>
+        <meta charset="UTF-8">
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 8px;
+                border: 1px solid #100000;
+                text-align: center;
+            }
+            th {
+                background-color: #faf3f3;
+            }
+            a {
+                color: rgb(44, 44, 223);
+                text-decoration: none;
+                margin: 0 5px;
+            }
+           
+            form {
+                margin: 0 auto 50px;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+            }
+
+            label {
+                display: inline-block;
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Danh Sách Sinh Viên</h1>
+        <table>
+            <thead>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Chức năng</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2251162009</td>
+                    <td>Trần Thị Khánh Hòa</td>
+                    <td>2251162009@e.tlu.edu</td>
+                    <td>Hưng Yên</td>
+                    <td>03/12/2004</td>
+                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2251162037</td>
+                    <td>Đào Khánh Huyền</td>
+                    <td>2251162037@e.tlu.edu</td>
+                    <td>Hưng Yên</td>
+                    <td>24/03/2004</td>
+                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2251162051</td>
+                    <td>Vũ Hoài Liên</td>
+                    <td>2251162051@e.tlu.edu</td>
+                    <td>Hà Nội</td>
+                    <td>04/11/2004</td>
+                    <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="text-align:center;">Form Thêm Sinh Viên</h2>
+            <form>
+                <label for="maSV">Mã sinh viên: </label>
+                <input type="text" id="maSV" name="maSV" placeholder="Mã sinh viên"><br><br>
+
+                <label for="hoTen">Họ và tên *</label>
+                <input type="text" id="hoTen" name="hoTen" placeholder="Họ tên"><br><br>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="Email"><br><br>
+
+                <label for="ngaySinh">Ngày sinh</label>
+                <input type="date" id="ngaySinh" name="ngaySinh" placeholder="Ngày sinh"><br><br>
+
+                <label for="gioiTinh">Giới tính:</label>
+                <input type="radio" id="nam" value="Nam">
+                <label name="Nam" id="Nam">Nam</label>
+                <input type="radio" id="Nữ" value="Nữ">
+                <label name="Nữ" id="Nữ">Nữ</label><br><br>
+                </div>
+
+                <label for="ghiChu">Ghi chú</label>
+                <input type="text" id="note" name="note" placeholder="Ghi chú"><br><br>
+
+                <button type="submit">Thêm sinh viên</button>
+            </form>
+        <h1 style="text-align:center;">BÀI TẬP 03: HTML Table</h1>
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2" rowspan="2">Student</th>
+                <th colspan="4">Exam</th>
+                <th colspan="4">2nd Exam</th>
+                <th colspan="2" rowspan="2">3rd Exam</th>
+            </tr>
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th rowspan="2">Grade</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th rowspan="2">Grade</th>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <td>8</td>
+                <td>5</td>
+                <td>7</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <th>NR</th>
+                <th>R</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>80549061</td>
+                <td>John</td>
+                <td>70%</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td>17.6</td>
+                <td colspan="4"></td>
+                <td>17.6</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>80549062</td>
+                <td>Mary</td>
+                <td>10%</td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>6.8</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td>50%</td>
+                <td>16.5</td>
+                <td>16.5</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>80549063</td>
+                <td>Claire</td>
+                <td colspan="4"></td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>10.0</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1 style="text-align:center;">BÀI TẬP 04</h1>
+    <form>
+        <h2>Basic Info</h2>
+        <label>Employee ID: </label>
+        <span type="text" name="EmployeeId" id="EmployeeId">9</span><br><br>
+
+        <label>Last Name: </label>
+        <span type="text" name="lastName" id="lastName">Dodsworth</span><br><br>
+
+        <label>First Name: </label>
+        <!-- <label for="firstName"><b>First Name</b></label> -->
+        <input type="text" name="firstName" id="firstName" value="Anne"><br><br>
+
+        <label>Gender: </label>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> XXX
+        <input type="radio" name="gender"> ZZZ<br><br>
+
+        <label>Title: </label>
+        <input type="text" name="title" id="title" value="Sales Representative"><br><br>
+
+        <label>Suffix: </label>
+        <input type="text" name="suffix" id="suffix" value="Ms."><br><br>
+
+        <label>Birth Date: </label>
+        <input type="datetime" name="birthDate" id="birthDate" value="1969-07-02 00:00:00"><br><br>
+
+        <label>Hire Date: </label>
+        <input type="datetime" name="hireDate" id="hireDate" value="1964-11-15 00:00:00"><br><br>
+
+        <label>SSN # (if applicable): </label>
+        <input type="text"><br><br>
+
+        <label>Reports To: </label>
+        <select>
+            <option>Buchanan</option>
+            <option>Khác</option>
+        </select><br><br>
+
+        <h2>Contact Info</h2>
+        <label>Email: </label>
+        <input type="text" name="email" id="email" placeholder="name@example.com"><br><br>
+
+        <label>Address: </label>
+        <input type="text" name="address" value="7 Houndstooth Rd."><br><br>
+
+        <label>City: </label>
+        <input type="text" name="city" id="city" value="London"><br><br>
+
+        <label>Region: </label>
+        <input type="text"><br><br>
+
+        <label>Postal Code: </label>
+        <input type="text" name="postal" id="postal" value="WG2 7LT"><br><br>
+
+        <label>Country: </label>
+        <select>
+            <option id="country" name="country">Country</option>
+        </select><br><br>
+
+        <label>US Home Phone: </label>
+        <input type="text" name="phoneNumber" id="phoneNumber" value="(234)234-2342"><br><br>
+
+        <label>Photo: </label>
+        <input type="text" name="photo" id="photo" value="EmpID9.bmp"><br><br>
+
+        <h2>Optional Info</h2>
+        <label>Notes: </label><br>
+        <textarea rows="4" cols="50">Anne has a BA degree in English from St. Lawrence College.</textarea><br><br>
+
+        <label>Preferred Shift: </label>
+        <input type="checkbox"> Regular
+        <input type="checkbox"> Gravy Yard<br><br>
+
+        <label>Active? </label>
+        <input type="checkbox"><br><br>
+
+        <label>Are you human? </label>
+        <input type="text" placeholder="TIDAWO"><br><br>
+
+        <label for="">Click to change</label><br>
+        <input type="text"><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Cancel">
+    </form>
+    </body>
+</html>
