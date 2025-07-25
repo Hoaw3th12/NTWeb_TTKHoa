@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bài Tập DOM cơ bản</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dom1.css" />
+    <style>
+        #thongBao {
+        color: green;
+        margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <h1>Quản lý sinh viên</h1>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-section">
+            <h2>Form Thêm Sinh Viên</h2>
+            <form id="formSinhVien">
+                <label for="maSV">Mã sinh viên:</label>
+                <input type="text" id="maSV" name="maSV">
+
+                <label for="hoTen">Họ và tên *</label>
+                <input type="text" id="hoTen" name="hoTen" required>
+
+                <label for="email1">Email *</label>
+                <input type="email" id="email1" name="email" required>
+
+                <label for="ngaySinh">Ngày sinh</label>
+                <input type="date" id="ngaySinh" name="ngaySinh">
+
+                <label>Giới tính:</label>
+                <div class="gender">
+                    <label><input type="radio" name="gioiTinh" value="Nam"> Nam</label>
+                    <label><input type="radio" name="gioiTinh" value="Nữ"> Nữ</label>
+                </div>
+
+                <label for="ghiChu">Ghi chú</label>
+                <input type="text" id="ghiChu" name="ghiChu">
+
+                <button type="button" id="btnThem">Thêm sinh viên</button>
+                <div id="thongBao"></div>
+
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Danh Sách Sinh Viên</h2>
+            <table id="bangSinhVien">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã SV</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Quê quán</th>
+                        <th>Ngày sinh</th>
+                        <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2251162009</td>
+                        <td>Trần Thị Khánh Hòa</td>
+                        <td>2251162009@e.tlu.edu</td>
+                        <td>Hưng Yên</td>
+                        <td>03/12/2004</td>
+                        <!-- <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td> -->
+                        <td><a href="#">Sửa</a> | <a href="#" onclick="xoaDong(this)">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2251162037</td>
+                        <td>Đào Khánh Huyền</td>
+                        <td>2251162037@e.tlu.edu</td>
+                        <td>Hưng Yên</td>
+                        <td>24/03/2004</td>
+                        <!-- <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td> -->
+                        <td><a href="#">Sửa</a> | <a href="#" onclick="xoaDong(this)">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2251162051</td>
+                        <td>Vũ Hoài Liên</td>
+                        <td>2251162051@e.tlu.edu</td>
+                        <td>Hà Nội</td>
+                        <td>04/11/2004</td>
+                        <!-- <td><a href="#">Sửa</a> | <a href="#">Xóa</a></td> -->
+                        <td><a href="#">Sửa</a> | <a href="#" onclick="xoaDong(this)">Xóa</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {  
+        document.getElementById("btnThem").addEventListener("click", function () {
+            alert("Đã nhấn nút Thêm");
+
+            const maSV = document.getElementById("maSV").value.trim();
+            const hoTen = document.getElementById("hoTen").value.trim();
+            const email = document.getElementById("email1").value.trim();
+            const ngaySinh = document.getElementById("ngaySinh").value;
+            const ghiChu = document.getElementById("ghiChu").value.trim();
+            const gioiTinh = document.querySelector("input[name='gioiTinh']:checked")?.value || "Chưa chọn";
+
+            if (!maSV || !hoTen || !email) {
+            alert("Vui lòng điền đầy đủ Mã SV, Họ tên và Email.");
+            return;
+            }
+
+            const table = document.getElementById("bangSinhVien").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+            const stt = table.rows.length;
+                
+            newRow.insertCell(0).innerText = stt;
+            newRow.insertCell(1).innerText = maSV;
+            newRow.insertCell(2).innerText = hoTen;
+            newRow.insertCell(3).innerText = email;
+            newRow.insertCell(4).innerText = ghiChu || "-";
+            newRow.insertCell(5).innerText = ngaySinh || "-";
+            newRow.insertCell(6).innerHTML = `<a href="#">Sửa</a> | <a href="#" onclick="xoaDong(this)">Xóa</a>`;
+
+            const thongBao = document.getElementById("thongBao");
+            thongBao.innerText = "✅ Thêm sinh viên thành công!";
+            setTimeout(() => {
+            thongBao.innerText = "";
+            }, 3000);
+
+            document.getElementById("formSinhVien").reset();
+        });
+    });
+
+        function xoaDong(el) {
+            if (confirm("Bạn có chắc chắn muốn xóa dòng này?")) {
+                el.closest("tr").remove();
+            }
+         }
+    </script>
+</body>
+</html>
