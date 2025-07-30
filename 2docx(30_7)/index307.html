@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Giao dịch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style307.css">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-dark text-white px-4">
+    <span class="navbar-brand">Trường Đại học Thủy lợi</span>
+    <div class="d-flex align-items-center">
+      <span class="me-2">Trang chủ</span>
+      <span class="me-2">Quản lý cửa hàng</span>
+      <input class="form-control form-control-sm me-2" placeholder="Nhập nội dung tìm kiếm" />
+      <button class="btn btn-success btn-sm">TÌM KIẾM</button>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-primary" onclick="showForm()">➕ THÊM</button>
+      <button class="btn btn-secondary">📄 XUẤT RA FILE</button>
+    </div>
+
+    <table class="table table-bordered table-hover text-center align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Hành động</th>
+          <th>ID</th>
+          <th>Khách hàng</th>
+          <th>Nhân viên</th>
+          <th>Số tiền</th>
+          <th>Ngày mua</th>
+        </tr>
+      </thead>
+      <tbody id="dataBody"></tbody>
+    </table>
+  </div>
+
+  <div class="modal" id="popupForm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form onsubmit="return handleSubmit(event)">
+          <div class="modal-header">
+            <h5 class="modal-title">Thêm giao dịch</h5>
+            <button type="button" class="btn-close" onclick="closeForm()"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label>Khách hàng</label>
+              <input type="text" id="khachhang" class="form-control">
+              <div class="text-danger small" id="errKhachhang"></div>
+            </div>
+            <div class="mb-3">
+              <label>Nhân viên</label>
+              <input type="text" id="nhanvien" class="form-control">
+              <div class="text-danger small" id="errNhanvien"></div>
+            </div>
+            <div class="mb-3">
+              <label>Số tiền</label>
+              <input type="number" id="sotien" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <button type="button" class="btn btn-secondary" onclick="closeForm()">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-primary text-white text-center p-4 mt-5">
+    <div>TRƯỜNG ĐẠI HỌC THỦY LỢI</div>
+    <div>175 Tây Sơn, Đống Đa, Hà Nội - ĐT: (024) 38522201 - Fax: (024) 35633351</div>
+    <div>Email: phongctct@tlu.edu.vn</div>
+  </footer>
+
+  <script src="data307.js"></script>
+</body>
+</html>
